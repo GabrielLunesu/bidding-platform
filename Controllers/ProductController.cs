@@ -194,6 +194,14 @@ namespace bidding_platform.Controllers
                     return NotFound();
                 }
 
+
+                if (product.EndDate < DateTime.Now)
+                {
+                    ModelState.AddModelError("End Date Expired", "Bid submission period has ended");
+                    // return same view
+                    return RedirectToAction("Details", product);
+                }
+
                 var newBid = new Bid
                 {
                     Amount = Amount,

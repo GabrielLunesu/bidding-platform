@@ -7,6 +7,14 @@
 <div class="container my-5">
     <h1 class="text-center mb-5">@Model.Name</h1>
 
+     <!-- Display Validation Errors -->
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            @Html.ValidationSummary()
+        </div>
+    }
+
     <div class="row justify-content-center">
         <!-- Product Details and Existing Bids -->
         <div class="col-md-8">
@@ -70,13 +78,13 @@
                         <input type="hidden" name="ProductId" value="@Model.ProductId" />
                         <div class="form-group">
                             <label for="Amount">Bid Amount</label>
-                            <input type="number" step="0.01" class="form-control" name="Amount" required />
+                            <input type="number" class="form-control" name="Amount" required />
                         </div>
                         <div class="form-group">
                             <label for="UserId">User ID</label>
                             <input type="number" class="form-control" name="UserId" required />
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Submit Bid</button>
+                            <button type="submit" class="btn btn-primary btn-block" @(Model.EndDate < DateTime.Now ? "disabled" : "")>Submit Bid</button>
                     </form>
                 </div>
             </div>
