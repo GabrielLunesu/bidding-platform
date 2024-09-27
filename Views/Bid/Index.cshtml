@@ -1,53 +1,55 @@
 @model IEnumerable<bidding_platform.Models.Bid>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Bid List";
 }
 
-<h1>Index</h1>
+<!-- Bootstrap Container -->
+<div class="container mt-5">
+    <!-- Page Title -->
+    <h1 class="text-center mb-5">My Bids</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Amount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BidDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Amount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BidDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.UserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Product.ProductId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.BidId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BidId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.BidId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <!-- "Create New" Button -->
+    <div class="text-center mb-4">
+        <a href="/Product" class="btn btn-success btn-lg animate__animated animate__bounceIn">
+            <i class="fas fa-plus-circle"></i> Go to products
+        </a>
+    </div>
+
+    <!-- Bids Table with Animation -->
+    <div class="table-responsive animate__animated animate__fadeInUp">
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr class="text-center">
+                    <th>Amount</th>
+                    <th>Bid Date</th>
+                    <th>User ID</th>
+                    <th>Product ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="text-center">
+                        <td>@item.Amount</td>
+                        <td>@item.BidDate</td>
+                        <td>@item.User?.UserId</td>
+                        <td>@item.Product?.ProductId</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.BidId" class="btn btn-sm btn-warning mx-1">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                            <a asp-action="Details" asp-route-id="@item.BidId" class="btn btn-sm btn-info mx-1">
+                                <i class="fas fa-info-circle"></i> Details
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.BidId" class="btn btn-sm btn-danger mx-1">
+                                <i class="fas fa-trash-alt"></i> Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

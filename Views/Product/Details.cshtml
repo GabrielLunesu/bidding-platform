@@ -1,86 +1,91 @@
 @model bidding_platform.Models.Product
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Product Details";
 }
 
-<h1>Details</h1>
+<div class="container my-5">
+    <h1 class="text-center mb-5">@Model.Name</h1>
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StartingPrice)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StartingPrice)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BidIncrement)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BidIncrement)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.User)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.User.UserId)
-        </dd>
-    </dl>
-</div>
+    <div class="row justify-content-center">
+        <!-- Product Details and Existing Bids -->
+        <div class="col-md-8">
+            <!-- Product Details Card -->
+            <div class="card mb-4">
+                <div class="card-header text-center">
+                    <h4>Product Details</h4>
+                </div>
+                <div class="card-body">
+                    <p><strong>Description:</strong> @Model.Description</p>
+                    <p><strong>Starting Price:</strong> @Model.StartingPrice</p>
+                    <p><strong>Start Date:</strong> @Model.StartDate</p>
+                    <p><strong>End Date:</strong> @Model.EndDate</p>
+                    <p><strong>Bid Increment:</strong> @Model.BidIncrement</p>
+                    <p><strong>Seller:</strong> @Model.User?.UserId </p>
+                </div>
+            </div>
 
-@*  *@
-<h3>Place a Bid:</h3>
-<form asp-action="PlaceBid" asp-controller="Product" method="post">
-    <input type="hidden" name="ProductId" value="@Model.ProductId" />
-    <div class="form-group">
-        <label for="Amount">Bid Amount:</label>
-        <input type="number" step="0.01" class="form-control" name="Amount" required />
+            <!-- Existing Bids Card -->
+            <div class="card mb-4">
+                <div class="card-header text-center">
+                    <h4>Existing Bids</h4>
+                </div>
+                <div class="card-body">
+                    @if (Model.Bids != null && Model.Bids.Any())
+                    {
+                        <table class="table table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th>Amount</th>
+                                    <th>Bid Date</th>
+                                    <th>User</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var bid in Model.Bids.OrderByDescending(b => b.BidDate))
+                                {
+                                    <tr>
+                                        <td>@bid.Amount</td>
+                                        <td>@bid.BidDate</td>
+                                        <td>@bid.User?.Name </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p class="text-center">No bids have been placed yet.</p>
+                    }
+                </div>
+            </div>
+
+            <!-- Place a Bid Form -->
+            <div class="card mb-4">
+                <div class="card-header text-center">
+                    <h4>Place a Bid</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="PlaceBid" asp-controller="Product" method="post">
+                        <input type="hidden" name="ProductId" value="@Model.ProductId" />
+                        <div class="form-group">
+                            <label for="Amount">Bid Amount</label>
+                            <input type="number" step="0.01" class="form-control" name="Amount" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="UserId">User ID</label>
+                            <input type="number" class="form-control" name="UserId" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Submit Bid</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="mb-4 text-center">
+                <a asp-action="Edit" asp-route-id="@Model.ProductId" class="btn btn-warning mx-2">Edit</a>
+                <a asp-action="Index" class="btn btn-secondary mx-2">Back to List</a>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="UserId">User</label>
-        <input type="number" class="form-control" name="UserId" required />
-    </div>
-    <button type="submit" class="btn btn-primary">Submit Bid</button>
-</form>
-
-<h3>Existing Bids:</h3>
-<ul>
-@foreach (var bid in Model.Bids)
-{
-    <li>Amount: @bid.Amount | Time: @bid.BidDate | User: @bid.User.Name</li>
-}
-</ul>
-
-@*  *@
-
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.ProductId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
 </div>
