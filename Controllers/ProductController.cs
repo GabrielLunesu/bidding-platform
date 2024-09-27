@@ -47,11 +47,12 @@ namespace bidding_platform.Controllers
 
         // Display product details with bids
         [HttpGet("Product/Details/{id}")]
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
             var product = await _context.Products
+                .Include(p => p.User) // Include the User who created the product
                 .Include(p => p.Bids)
-                .ThenInclude(b => b.User)
+                    .ThenInclude(b => b.User) // Include Users who placed bids
                 .FirstOrDefaultAsync(p => p.ProductId == id);
 
             if (product == null)
@@ -61,6 +62,7 @@ namespace bidding_platform.Controllers
 
             return View(product);
         }
+
 
         // GET: Product/Create
         public IActionResult Create()
@@ -108,7 +110,7 @@ namespace bidding_platform.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("ProductId,Name,Description,StartingPrice,StartDate,EndDate,UserId")] Product product)
+        public async Task<IActionResult> Edit(int? id, [Bind("ProductId,Name,Description,StartingPrice,StartDate,EndDate,BidIncrement,UserId")] Product product)
         {
             if (id != product.ProductId)
             {
