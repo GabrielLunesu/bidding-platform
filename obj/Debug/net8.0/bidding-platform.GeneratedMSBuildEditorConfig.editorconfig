@@ -1,0 +1,135 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = bidding_platform
+build_property.RootNamespace = bidding_platform
+build_property.ProjectDir = /Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Bid/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmlkL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Bid/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmlkL0RlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Bid/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmlkL0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Bid/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmlkL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Bid/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmlkL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Message/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWVzc2FnZS9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Message/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWVzc2FnZS9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Message/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWVzc2FnZS9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Message/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWVzc2FnZS9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Message/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWVzc2FnZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Product/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Product/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Product/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Product/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Product/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/User/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/User/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/User/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/User/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-9dje85ibnk
