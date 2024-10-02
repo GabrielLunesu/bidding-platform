@@ -4,14 +4,16 @@
     ViewData["Title"] = "Products";
 }
 
-<h1>Products</h1>
+<h1 class="ml-5 mt-5">Products</h1>
 
+
+@* this should only be visible to the admin *@
 <p>
-    <a asp-action="Create" class="btn btn-primary">Create New</a>
+    <a asp-action="Create" class="btn ml-5 btn-primary">Create New</a>
 </p>
 
 <!-- Existing table view -->
-<table class="table">
+@* <table class="table">
     <thead>
         <tr>
             <th>
@@ -65,11 +67,11 @@
 }
 
     </tbody>
-</table>
+</table> *@
 
 <!-- New card-based layout -->
 <section class="card-area pb-5 mt-5">
-    <h2>Product Cards</h2>
+    @* <h2>Product Cards</h2> *@
     <div class="container">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
             @foreach (var item in Model)
