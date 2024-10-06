@@ -194,12 +194,29 @@ namespace bidding_platform.Controllers
                     return NotFound();
                 }
 
-
                 if (product.EndDate < DateTime.Now)
                 {
                     ModelState.AddModelError("End Date Expired", "Bid submission period has ended");
-                    // return same view
-                    return RedirectToAction("Details", product);
+                    return RedirectToAction("Details", new { id = ProductId });
+                }
+
+                // Get the highest bid for this product
+                var highestBid = await _context.Bids
+                    .Where(b => b.ProductId == ProductId)
+                    .OrderByDescending(b => b.Amount)
+                    .FirstOrDefaultAsync();
+
+                double minimumBidAmount = product.StartingPrice ?? 0;
+                if (highestBid != null)
+                {
+                    minimumBidAmount = (highestBid.Amount ?? 0) + (product.BidIncrement ?? 0);
+                }
+
+                // Check if the new bid is high enough
+                if (Amount < minimumBidAmount)
+                {
+                    Console.WriteLine($"Your bid must be at least {minimumBidAmount}");
+                    return RedirectToAction("Details", new { id = ProductId });
                 }
 
                 var newBid = new Bid

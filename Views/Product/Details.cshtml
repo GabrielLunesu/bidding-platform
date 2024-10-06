@@ -74,17 +74,27 @@
                     <h4>Place a Bid</h4>
                 </div>
                 <div class="card-body">
+                    @{
+                        var currentPrice = Model.Bids?.Any() == true 
+                            ? Model.Bids.Max(b => b.Amount) 
+                            : Model.StartingPrice;
+                        var minBid = currentPrice + Model.BidIncrement;
+                    }
                     <form asp-action="PlaceBid" asp-controller="Product" method="post">
                         <input type="hidden" name="ProductId" value="@Model.ProductId" />
                         <div class="form-group">
                             <label for="Amount">Bid Amount</label>
-                            <input type="number" class="form-control" name="Amount" required />
+                            <input type="number" class="form-control" name="Amount" required min="@minBid" step="@Model.BidIncrement" />
+                            <small class="form-text text-muted">Minimum bid: @minBid</small>
                         </div>
                         <div class="form-group">
                             <label for="UserId">User ID</label>
                             <input type="number" class="form-control" name="UserId" required />
                         </div>
-                            <button type="submit" class="btn btn-primary btn-block" @(Model.EndDate < DateTime.Now ? "disabled" : "")>Submit Bid</button>
+                        <button type="submit" class="btn btn-primary btn-block" 
+                                @(Model.EndDate < DateTime.Now ? "disabled" : "")>
+                            Submit Bid
+                        </button>
                     </form>
                 </div>
             </div>

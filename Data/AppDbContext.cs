@@ -17,11 +17,13 @@ namespace bidding_platform.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             // User -> Messages: when a user is deleted, delete the messages
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Messages)
-                .WithOne(m => m.User)
-                .HasForeignKey(m => m.UserId)
+                .WithOne(m => m.Sender)
+                .HasForeignKey(m => m.SenderId)
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.Cascade);
 
@@ -49,14 +51,17 @@ namespace bidding_platform.Data
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Message>(b => {
-            b.HasOne<User>()    // <---
-                .WithMany()       // <---
-                .HasForeignKey(c => c.UserId);
-            });
+            modelBuilder.Entity<Message>()
+                .HasOne(m => m.Sender)
+                .WithMany()
+                .HasForeignKey(m => m.SenderId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-
-          
+            modelBuilder.Entity<Message>()
+                .HasOne(m => m.Recipient)
+                .WithMany()
+                .HasForeignKey(m => m.RecipientId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

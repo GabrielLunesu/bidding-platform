@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -22,8 +21,37 @@ namespace bidding_platform.Controllers
         // GET: Message
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Messages.Include(m => m.User);
-            return View(await appDbContext.ToListAsync());
+            var messages = await _context.Messages
+                .Include(m => m.Sender)
+                .Include(m => m.Recipient)
+                .OrderByDescending(m => m.SentDate)
+                .ToListAsync();
+            return View(messages);
+        }
+
+        // GET: Message/Create
+        public IActionResult Create()
+        {
+            ViewData["SenderId"] = new SelectList(_context.Users, "UserId", "Name");
+            ViewData["RecipientId"] = new SelectList(_context.Users, "UserId", "Name");
+            return View();
+        }
+
+        // POST: Message/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("SenderId,RecipientId,Content")] Message message)
+        {
+            if (ModelState.IsValid)
+            {
+                message.SentDate = DateTime.Now;
+                _context.Add(message);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["SenderId"] = new SelectList(_context.Users, "UserId", "Name", message.SenderId);
+            ViewData["RecipientId"] = new SelectList(_context.Users, "UserId", "Name", message.RecipientId);
+            return View(message);
         }
 
         // GET: Message/Details/5
@@ -35,7 +63,8 @@ namespace bidding_platform.Controllers
             }
 
             var message = await _context.Messages
-                .Include(m => m.User)
+                .Include(m => m.Sender)
+                .Include(m => m.Recipient)
                 .FirstOrDefaultAsync(m => m.MessageId == id);
             if (message == null)
             {
@@ -43,122 +72,6 @@ namespace bidding_platform.Controllers
             }
 
             return View(message);
-        }
-
-        // GET: Message/Create
-        public IActionResult Create()
-        {
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
-            return View();
-        }
-
-        // POST: Message/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MessageId,Content,SentDate,UserId")] Message message)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(message);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", message.UserId);
-            return View(message);
-        }
-
-        // GET: Message/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var message = await _context.Messages.FindAsync(id);
-            if (message == null)
-            {
-                return NotFound();
-            }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", message.UserId);
-            return View(message);
-        }
-
-        // POST: Message/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("MessageId,Content,SentDate,UserId")] Message message)
-        {
-            if (id != message.MessageId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(message);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!MessageExists(message.MessageId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", message.UserId);
-            return View(message);
-        }
-
-        // GET: Message/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var message = await _context.Messages
-                .Include(m => m.User)
-                .FirstOrDefaultAsync(m => m.MessageId == id);
-            if (message == null)
-            {
-                return NotFound();
-            }
-
-            return View(message);
-        }
-
-        // POST: Message/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
-        {
-            var message = await _context.Messages.FindAsync(id);
-            if (message != null)
-            {
-                _context.Messages.Remove(message);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool MessageExists(int? id)
-        {
-            return _context.Messages.Any(e => e.MessageId == id);
         }
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using bidding_platform.Data;
 using bidding_platform.Models;
+using bidding_platform.Models.ViewModels;
 
 namespace bidding_platform.Controllers
 {
@@ -152,6 +153,75 @@ namespace bidding_platform.Controllers
         private bool UserExists(int? id)
         {
             return _context.Users.Any(e => e.UserId == id);
+        }
+
+        // GET: User/SellerDashboard/5
+        public async Task<IActionResult> SellerDashboard(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var seller = await _context.Users
+                .Include(u => u.Products)
+                .FirstOrDefaultAsync(m => m.UserId == id);
+
+            if (seller == null)
+            {
+                return NotFound();
+            }
+
+            var receivedMessages = await _context.Messages
+                .Include(m => m.Sender)
+                .Where(m => m.RecipientId == id)
+                .OrderByDescending(m => m.SentDate)
+                .ToListAsync();
+
+            var viewModel = new SellerDashboardViewModel
+            {
+                Seller = seller,
+                Products = seller.Products,
+                ReceivedMessages = receivedMessages
+            };
+
+            return View(viewModel);
+        }
+
+        // GET: User/BuyerDashboard/5
+        public async Task<IActionResult> BuyerDashboard(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var buyer = await _context.Users
+                .Include(u => u.Bids)
+                    .ThenInclude(b => b.Product)
+                .FirstOrDefaultAsync(m => m.UserId == id);
+
+            if (buyer == null)
+            {
+                return NotFound();
+            }
+
+            var biddedProducts = buyer.Bids.Select(b => b.Product).Distinct().ToList();
+
+            var receivedMessages = await _context.Messages
+                .Include(m => m.Sender)
+                .Where(m => m.RecipientId == id)
+                .OrderByDescending(m => m.SentDate)
+                .ToListAsync();
+
+            var viewModel = new BuyerDashboardViewModel
+            {
+                Buyer = buyer,
+                BiddedProducts = biddedProducts,
+                ReceivedMessages = receivedMessages
+            };
+
+            return View(viewModel);
         }
     }
 }
