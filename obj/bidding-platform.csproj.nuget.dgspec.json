@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/bidding-platform.csproj": {}
+    "/Users/gabriellunesu/Documents/GitHub/bidding-platform/bidding-platform.csproj": {}
   },
   "projects": {
-    "/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/bidding-platform.csproj": {
+    "/Users/gabriellunesu/Documents/GitHub/bidding-platform/bidding-platform.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/bidding-platform.csproj",
+        "projectUniqueName": "/Users/gabriellunesu/Documents/GitHub/bidding-platform/bidding-platform.csproj",
         "projectName": "bidding-platform",
-        "projectPath": "/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/bidding-platform.csproj",
+        "projectPath": "/Users/gabriellunesu/Documents/GitHub/bidding-platform/bidding-platform.csproj",
         "packagesPath": "/Users/gabriellunesu/.nuget/packages/",
-        "outputPath": "/Users/gabriellunesu/Documents/School /leerjaar 2/Blok 1/bidding-platform/bidding-platform/obj/",
+        "outputPath": "/Users/gabriellunesu/Documents/GitHub/bidding-platform/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/gabriellunesu/.nuget/NuGet/NuGet.Config"
