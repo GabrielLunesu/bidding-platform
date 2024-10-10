@@ -1,3 +1,9 @@
+/* Add this at the top of the file */
+.bg-custom-gray {
+    background-color: #343a40; /* This is the dark gray color from the image */
+    color: white; /* This ensures text is readable on the dark background */
+}
+
 html {
   font-size: 14px;
 }
@@ -225,4 +231,37 @@ body {
 
 .product-card .btn {
     margin-right: 0.25rem;
+}
+
+/* Add these rules after the .bg-custom-gray rule */
+main {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.card {
+    background-color: #454d55; /* Slightly lighter gray for cards */
+    border: none;
+}
+
+.card-header {
+    background-color: #3a4147; /* Even darker for card headers */
+}
+
+.table {
+    color: white;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255,255,255,.05);
+}
+
+.btn-outline-primary, .btn-outline-secondary, .btn-outline-danger {
+    color: white;
+    border-color: white;
+}
+
+.btn-outline-primary:hover, .btn-outline-secondary:hover, .btn-outline-danger:hover {
+    color: #343a40;
+    background-color: white;
 }

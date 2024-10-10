@@ -20,7 +20,7 @@
     <div class="table-responsive animate__animated animate__fadeInUp">
         <table class="table table-hover table-bordered">
             <thead class="thead-dark">
-                <tr class="text-center">
+                <tr class="text-center text-white">
                     <th>Amount</th>
                     <th>Bid Date</th>
                     <th>User ID</th>
@@ -31,7 +31,7 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr class="text-center">
+                    <tr class="text-center text-white">
                         <td>@item.Amount</td>
                         <td>@item.BidDate</td>
                         <td>@item.User?.UserId</td>
