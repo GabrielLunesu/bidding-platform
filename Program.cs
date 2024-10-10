@@ -15,28 +15,27 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AppDbContext")));
 
 // Register the Swagger generator, defining one or more Swagger documents.
-// Move this before builder.Build()
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
 });
 
-// Now build the app
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
-    
+
     // Enable middleware to serve generated Swagger as a JSON endpoint.
     app.UseSwagger();
-    
+
     // Enable middleware to serve Swagger UI.
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-        c.RoutePrefix = string.Empty; // Set Swagger UI at the app's root.
+        // Set a custom route for Swagger UI
+        c.RoutePrefix = "swagger";
     });
 }
 else
@@ -55,5 +54,15 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+// Ensure that you have a HomeController with an Index action
+// If not, create one in the Controllers folder:
+// public class HomeController : Controller
+// {
+//     public IActionResult Index()
+//     {
+//         return View();
+//     }
+// }
 
 app.Run();

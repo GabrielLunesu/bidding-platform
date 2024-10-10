@@ -46,7 +46,7 @@ namespace bidding_platform.Controllers
         // }
 
         // Display product details with bids
-        [HttpGet("Product/Details/{id}")]
+        // [HttpGet("Product/Details/{id}")]
         public async Task<IActionResult> Details(int id)
         {
             var product = await _context.Products
@@ -182,7 +182,7 @@ namespace bidding_platform.Controllers
 
 
         // Handle bid submission
-        [HttpPost("Product/PlaceBid")]
+        // [HttpPost("Product/PlaceBid")]
         public async Task<IActionResult> PlaceBid(int ProductId, double Amount, int UserId)
         {
             if (ModelState.IsValid)
