@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("bidding-platform")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c64b927670360512d33d47f35841b560d6116f6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d35535e645f2b99810f252ffb7aa7fb81eb256e0")]
 [assembly: System.Reflection.AssemblyProductAttribute("bidding-platform")]
 [assembly: System.Reflection.AssemblyTitleAttribute("bidding-platform")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -506,3 +506,8 @@
 /Users/gabriellunesu/Documents/GitHub/bidding-platform/obj/Debug/net8.0/bidding-platform.pdb
 /Users/gabriellunesu/Documents/GitHub/bidding-platform/obj/Debug/net8.0/bidding-platform.genruntimeconfig.cache
 /Users/gabriellunesu/Documents/GitHub/bidding-platform/obj/Debug/net8.0/ref/bidding-platform.dll
+/Users/gabriellunesu/Documents/GitHub/bidding-platform/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/Users/gabriellunesu/Documents/GitHub/bidding-platform/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/gabriellunesu/Documents/GitHub/bidding-platform/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/gabriellunesu/Documents/GitHub/bidding-platform/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/gabriellunesu/Documents/GitHub/bidding-platform/obj/Debug/net8.0/bidding-platform.MvcApplicationPartsAssemblyInfo.cs
